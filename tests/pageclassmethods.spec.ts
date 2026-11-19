@@ -20,4 +20,7 @@ test("https//www.github.com", async ({ page }) => {
     await page.goForward();
     await expect(page).toHaveTitle("Google");
 
-});
+    const pageContent = await page.content();
+    expect(pageContent).toContain("Google");
+
+}); 
