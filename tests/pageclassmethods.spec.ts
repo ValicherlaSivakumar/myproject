@@ -12,4 +12,12 @@ test("https//www.github.com", async ({ page }) => {
 
     await page.setViewportSize({ width: 1100, height: 1000 });
 
+    await page.goto("https://www.google.co.in");
+    await expect(page).toHaveTitle("Google");
+
+    await page.goBack();
+    await expect(page).toHaveTitle(expectedURL);
+    await page.goForward();
+    await expect(page).toHaveTitle("Google");
+
 });
